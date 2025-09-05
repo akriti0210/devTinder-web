@@ -1,11 +1,17 @@
 import axios from "axios";
 import { useState } from "react"
 import Profile from "./Profile";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
+import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../utils/constants";
 
 const Login = () => {
 
   const [email, setEmail] = useState("emilys");
   const [password, setPassword] = useState("emilyspass");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // const [cookie, setCookie] = useCookies(['accessToken', 'refreshToken'])
 
@@ -14,24 +20,17 @@ const Login = () => {
     password: password
   }
 
-  const handleLogin = async() => {
+  const handleLogin = async () => {
     try
     {
-      const res = await axios.post("https://dummyjson.com/auth/login",
-        payload).then((response) => {
-          console.log(response)
-          if (response.status === 200)
-          {
-            <Profile />
-          }
-          // let expires = new Date()
-          // setCookie('accessToken', res.data.accessToken, { path: '/',  expires})
-          // setCookie('refreshToken', res.data.refreshToken, {path: '/', expires})
-      })
+      const res = await axios.post(BASE_URL,
+        payload)
+      dispatch(addUser(res.data));
+      navigate("/");
     }
     catch (err)
     {
-      console.error(err.response.data.message);
+      console.error(err);
     }
   }
 
