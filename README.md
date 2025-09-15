@@ -20,6 +20,17 @@
 - Login and see if your data is coming properly in the store
 - NavBar should update as soon as user logs in
 - Refractor code to add constants file + create a components folder
+- npm i react-cookie
+- Wrap root App inside CookiesProvider in main.jsx
+- set accessToken and refreshToken
+- To refresh add headers in axios headers: {
+          'Authorization': `Bearer ${accessTokenValue}`
+        }
+- You should not be access other routes without login
+- If token is not present, redirect user to login page
+- Logout
+- Profile
+
 
 Body
     NavBar

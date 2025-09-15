@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
+import { useCookies } from "react-cookie";
 
 const Login = () => {
 
@@ -15,6 +16,8 @@ const Login = () => {
 
   // const [cookie, setCookie] = useCookies(['accessToken', 'refreshToken'])
 
+  const [cookies, setCookie, removeCookie] = useCookies(['accessToken', 'refreshToken']);
+
   const payload = {
     username: email,
     password: password
@@ -23,9 +26,11 @@ const Login = () => {
   const handleLogin = async () => {
     try
     {
-      const res = await axios.post(BASE_URL,
+      const res = await axios.post(BASE_URL+"/login",
         payload)
       dispatch(addUser(res.data));
+      setCookie('accessToken', res.data.accessToken);
+      setCookie('refreshToken', res.data.refreshToken);
       navigate("/");
     }
     catch (err)
