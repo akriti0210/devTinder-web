@@ -1,4 +1,4 @@
-# DevTomder
+# DevTinder
 
 - Created a Vite + React application
 - Remove unnecessary code and create a hello world
@@ -29,6 +29,8 @@
 - You should not be access other routes without login
 - If token is not present, redirect user to login page
 - Logout
+- Get the feed and add the feed in the store
+- Build the user card on feed
 - Profile
 
 
