@@ -11,6 +11,7 @@ const Login = () => {
 
   const [email, setEmail] = useState("emilys");
   const [password, setPassword] = useState("emilyspass");
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -35,7 +36,7 @@ const Login = () => {
     }
     catch (err)
     {
-      console.error(err);
+      setError(err?.response?.data?.message);
     }
   }
 
@@ -58,6 +59,7 @@ const Login = () => {
               <input type="text" value={password} name="password" className="input w-full max-w-xs" onChange={(e)=>setPassword(e.target.value)} />
             </label>
           </div>
+          <p className="text-red-500">{error}</p>
           <div className="card-actions justify-center">
             <button className="btn btn-primary" onClick={handleLogin}>Login</button>
           </div>
