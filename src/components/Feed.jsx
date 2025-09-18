@@ -15,7 +15,7 @@ const Feed = () => {
     try
     {
       const res = await axios.get(USERS);
-      console.log(res?.data?.users);
+      // console.log(res?.data?.users);
       dispatch(addFeed(res?.data?.users));
     }
     catch (err)
