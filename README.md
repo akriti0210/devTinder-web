@@ -31,7 +31,8 @@
 - Logout
 - Get the feed and add the feed in the store
 - Build the user card on feed
-- Profile
+- Edit Profile
+- Show toast message on save of profile
 
 
 Body

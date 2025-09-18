@@ -9,8 +9,8 @@ import { useCookies } from "react-cookie";
 
 const Login = () => {
 
-  const [email, setEmail] = useState("emilys");
-  const [password, setPassword] = useState("emilyspass");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();

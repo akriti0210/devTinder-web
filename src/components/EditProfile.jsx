@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import UserCard from './UserCard';
 import axios from 'axios';
 import { USERS } from '../utils/constants';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addUser } from '../utils/userSlice';
 
 const EditProfile = ({user}) => {
@@ -17,12 +17,13 @@ const EditProfile = ({user}) => {
     const [showToast, setShowToast] = useState(false);
 
     const dispatch = useDispatch();
+    const userData = useSelector((store) => store.user);
 
     const saveProfile = async () => {
         setError("");
         try
         {
-            const res = await axios.put(USERS + "/1", {
+            const res = await axios.put(USERS + "/" + userData.id, {
                 firstName,
                 lastName,
                 image,
@@ -30,7 +31,6 @@ const EditProfile = ({user}) => {
                 gender,
                 university
             });
-            console.log(res);
             dispatch(addUser(res.data));
             setShowToast(true);
 
