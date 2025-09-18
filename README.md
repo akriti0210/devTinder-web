@@ -33,6 +33,7 @@
 - Build the user card on feed
 - Edit Profile
 - Show toast message on save of profile
+- See all my connections
 
 
 Body
