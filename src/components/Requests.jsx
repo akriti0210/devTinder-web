@@ -30,7 +30,7 @@ const Requests = () => {
         return;
 
     if (requests.length === 0)
-        return <h1>No Connections Found</h1>
+        return <h1>No Profiles Found</h1>
     
     return (
         <div className='text-center my-10'>
