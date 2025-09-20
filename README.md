@@ -36,6 +36,7 @@
 - See all my connections
 - See all my connection requests
 - Ignore the user card from the feed
+- Sign up a new user
 
 Body
     NavBar
