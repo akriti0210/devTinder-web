@@ -12,7 +12,6 @@ const Connections = () => {
     try
     {
       const res = await axios.get(USERS + "/filter?key=hair.color&value=White");
-      console.log(res.data);
       dispatch(addConnections(res.data.users));
     }
     catch (err)
@@ -35,10 +34,10 @@ const Connections = () => {
       <h1 className='text-bold text-3xl'>Connections</h1>
 
       {connectionData.map((connection) => {
-        const { firstName, lastName, image, age, gender, university } = connection;
+        const { id, firstName, lastName, image, age, gender, university } = connection;
 
         return (
-          <div className='flex my-4 p-4 bg-base-300 max-w-1/2 m-auto'>
+          <div key={id} className='flex my-4 p-4 bg-base-300 max-w-1/2 m-auto'>
             <div>
               <img
                 alt='photo'

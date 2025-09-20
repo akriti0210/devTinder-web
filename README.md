@@ -34,6 +34,7 @@
 - Edit Profile
 - Show toast message on save of profile
 - See all my connections
+- See all my connection requests
 
 
 Body
